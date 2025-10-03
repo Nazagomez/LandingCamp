@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Carousel } from 'flowbite-react';
 import { Link } from 'react-router-dom';
-import { Utensils } from 'lucide-react';
+import { Utensils, ArrowLeft } from 'lucide-react';
 
 const AlmuerzosPage = () => {
   const foodImages = [
@@ -21,6 +21,13 @@ const AlmuerzosPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-yellow-50">
+      {/* Back Navigation */}
+      <div className="container mx-auto px-4 py-6">
+        <Link to="/" className="inline-flex items-center text-orange-600 hover:text-orange-800 font-medium">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Home
+        </Link>
+      </div>
       <div className="h-[60vh] relative">
         <Carousel className="h-full">
           {foodImages.map((image, index) => (
@@ -90,7 +97,7 @@ const AlmuerzosPage = () => {
           <div className="text-center mt-12">
             <Link to="/">
               <Button gradientDuoTone="greenToYellow" size="xl" className="font-semibold">
-                Back to Home
+                Book Meal Plan
               </Button>
             </Link>
           </div>

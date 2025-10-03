@@ -1,40 +1,14 @@
-import React, { useState } from 'react';
-import { Button, Navbar, Carousel, Card, TextInput, Textarea, Footer } from 'flowbite-react';
-import { Palmtree as PalmTree, Compass, Palette, UtensilsCrossed, Facebook, Instagram, Twitter } from 'lucide-react';
+import React from 'react';
+import { Button, Carousel, Card, TextInput, Textarea } from 'flowbite-react';
+import { Compass, Palette, UtensilsCrossed } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      setIsMenuOpen(false);
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header/Navigation */}
-      <Navbar fluid className="fixed w-full z-50 bg-white/95 border-b">
-        <Navbar.Brand href="/">
-          <PalmTree className="text-primary-600 h-8 w-8 mr-2" />
-          <span className="self-center text-xl font-semibold whitespace-nowrap">Nosara Day Camp</span>
-        </Navbar.Brand>
-        <Navbar.Toggle onClick={() => setIsMenuOpen(!isMenuOpen)} />
-        <Navbar.Collapse className={isMenuOpen ? 'show' : ''}>
-          <Navbar.Link onClick={() => scrollToSection('inicio')}>Home</Navbar.Link>
-          <Navbar.Link onClick={() => scrollToSection('servicios')}>Services</Navbar.Link>
-          <Navbar.Link onClick={() => scrollToSection('reservas')}>Reserves</Navbar.Link>
-          <Navbar.Link onClick={() => scrollToSection('equipo')}>Team</Navbar.Link>
-          <Navbar.Link onClick={() => scrollToSection('galeria')}>Gallery</Navbar.Link>
-          <Navbar.Link onClick={() => scrollToSection('contacto')}>Contact</Navbar.Link>
-        </Navbar.Collapse>
-      </Navbar>
-
+    <>
       {/* Hero Section */}
-      <section id="inicio" className="pt-16">
+      <section id="inicio">
         <div className="relative h-screen flex items-center justify-center text-white"
              style={{
                backgroundImage: 'url("https://images.unsplash.com/photo-1499002238440-d264edd596ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
@@ -471,45 +445,120 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer container className="bg-gray-900">
-        <div className="container mx-auto">
-          <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-            <div className="space-y-4 mb-8">
-              <Footer.Brand
-                href="/"
-                src="https://flowbite.com/docs/images/logo.svg"
-                alt="Nosara Day Camp Logo"
-                name="Nosara Day Camp"
-              />
-              <div className="text-gray-400">
-                <p>Playa Nosara, Guanacaste</p>
-                <p>Costa Rica</p>
-                <p>Tel: +506 2222-3333</p>
+      {/* Contact Section */}
+      <section id="contacto" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <span className="text-gray-600 font-medium">Get in Touch</span>
+            <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
+            <div className="w-24 h-1 bg-gray-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h3 className="text-2xl font-bold mb-6 text-gray-800">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+                      📍
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Address</h4>
+                      <p className="text-gray-600">Playa Nosara, Guanacaste<br />Costa Rica</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+                      📞
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Phone</h4>
+                      <p className="text-gray-600">+506 2222-3333</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+                      ✉️
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Email</h4>
+                      <p className="text-gray-600">info@nosaradaycamp.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+                      🕒
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Hours</h4>
+                      <p className="text-gray-600">Monday - Friday: 7:00 AM - 6:00 PM<br />Saturday: 8:00 AM - 4:00 PM</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
-              <div>
-                <Footer.Title title="Síguenos" />
-                <Footer.LinkGroup col>
-                  <div className="flex gap-4">
-                    <Facebook className="h-6 w-6 text-gray-400 hover:text-white cursor-pointer" />
-                    <Instagram className="h-6 w-6 text-gray-400 hover:text-white cursor-pointer" />
-                    <Twitter className="h-6 w-6 text-gray-400 hover:text-white cursor-pointer" />
+
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800">Send us a Message</h3>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700">First Name</label>
+                    <TextInput
+                      type="text"
+                      placeholder="John"
+                      required
+                      className="w-full rounded-xl"
+                    />
                   </div>
-                </Footer.LinkGroup>
-              </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700">Last Name</label>
+                    <TextInput
+                      type="text"
+                      placeholder="Doe"
+                      required
+                      className="w-full rounded-xl"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Email</label>
+                  <TextInput
+                    type="email"
+                    placeholder="john@example.com"
+                    required
+                    className="w-full rounded-xl"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Subject</label>
+                  <TextInput
+                    type="text"
+                    placeholder="How can we help?"
+                    required
+                    className="w-full rounded-xl"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Message</label>
+                  <Textarea
+                    placeholder="Tell us about your needs..."
+                    required
+                    rows={5}
+                    className="w-full rounded-xl"
+                  />
+                </div>
+                <Button gradientDuoTone="greenToBlue" className="w-full rounded-xl py-3">
+                  Send Message
+                </Button>
+              </form>
             </div>
           </div>
-          <Footer.Divider />
-          <Footer.Copyright
-            href="#"
-            by="Nosara Day Camp™"
-            year={2024}
-          />
         </div>
-      </Footer>
-    </div>
+      </section>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Carousel } from 'flowbite-react';
 import { Link } from 'react-router-dom';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowLeft } from 'lucide-react';
 
 const ExcursionesPage = () => {
   const excursionImages = [
@@ -21,6 +21,13 @@ const ExcursionesPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
+      {/* Back Navigation */}
+      <div className="container mx-auto px-4 py-6">
+        <Link to="/" className="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Home
+        </Link>
+      </div>
       {/* Hero Section with Carousel */}
       <div className="h-[60vh] relative">
         <Carousel className="h-full">
@@ -92,7 +99,7 @@ const ExcursionesPage = () => {
           <div className="text-center mt-12">
             <Link to="/">
               <Button gradientDuoTone="greenToBlue" size="xl" className="font-semibold">
-                Back to Home
+                Book Excursion
               </Button>
             </Link>
           </div>

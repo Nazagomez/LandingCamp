@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Carousel } from 'flowbite-react';
 import { Link } from 'react-router-dom';
-import { Palette } from 'lucide-react';
+import { Palette, ArrowLeft } from 'lucide-react';
 
 const ArtePage = () => {
   const artImages = [
@@ -21,6 +21,13 @@ const ArtePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+      {/* Back Navigation */}
+      <div className="container mx-auto px-4 py-6">
+        <Link to="/" className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Home
+        </Link>
+      </div>
       <div className="h-[60vh] relative">
         <Carousel className="h-full">
           {artImages.map((image, index) => (
@@ -92,7 +99,7 @@ const ArtePage = () => {
           <div className="text-center mt-12">
             <Link to="/">
               <Button gradientDuoTone="purpleToPink" size="xl" className="font-semibold">
-                Back to Home
+                Book Art Workshop
               </Button>
             </Link>
           </div>
